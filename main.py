@@ -13,15 +13,17 @@ guild = discord.Object("ID")
 
 client = commands.Bot(command_prefix=command_prefix, intents=intents)
 
+
 # Bot Initialization
 
 @client.event
 async def on_ready():
-    try: 
+    try:
         synced = await client.tree.sync(guild=guild)
         print(f"Synced {len(synced)} commands to {guild.id}")
     except Exception as e:
         print(f"Error syncing commands: {e}")
+
 
 # Main Function
 
@@ -34,7 +36,7 @@ async def play(interaction):
     else:
         await interaction.response.send_message("coundlt sjoin")
 
+
 # Run Bot
 
 client.run("ID")
-
